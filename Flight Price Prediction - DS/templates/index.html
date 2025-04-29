@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SkyFlights - Book Your Flight</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="form-container">
+  <h2>🛫 Book Your Flight</h2>
+  <form action="/predict" method="post">
+
+    <select name="airline" required>
+      <option value="">Select Airline</option>
+      {% for val in dropdown_data['airline'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="flight" required>
+      <option value="">Select Flight</option>
+      {% for val in dropdown_data['flight'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="source_city" required>
+      <option value="">Select Source City</option>
+      {% for val in dropdown_data['source_city'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="departure_time" required>
+      <option value="">Select Departure Time</option>
+      {% for val in dropdown_data['departure_time'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="arrival_time" required>
+      <option value="">Select Arrival Time</option>
+      {% for val in dropdown_data['arrival_time'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="destination_city" required>
+      <option value="">Select Destination City</option>
+      {% for val in dropdown_data['destination_city'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="class" required>
+      <option value="">Select Class</option>
+      {% for val in dropdown_data['class'] %}
+        <option value="{{ val }}">{{ val }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="number" name="duration" step="0.1" placeholder="Duration (hrs)" required>
+    <input type="number" name="days_left" placeholder="Days Left" required>
+
+    <select name="stops" required>
+      <option value="">Select Stops</option>
+      {% for val in stops_options %}
+        <option value="{{ val }}">{{ val.capitalize() }}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit" class="fire-button">🎯 Predict Price</button>
+  </form>
+
+  {% if prediction %}
+    <div class="result">
+      <h2>🎯 Predicted Price: {{ prediction }}</h2>
+      <h3>🧾 Your Flight Details:</h3>
+      <ul>
+        <li><strong>Airline:</strong> {{ form_data['airline'] }}</li>
+        <li><strong>Flight:</strong> {{ form_data['flight'] }}</li>
+        <li><strong>Source City:</strong> {{ form_data['source_city'] }}</li>
+        <li><strong>Departure Time:</strong> {{ form_data['departure_time'] }}</li>
+        <li><strong>Arrival Time:</strong> {{ form_data['arrival_time'] }}</li>
+        <li><strong>Destination City:</strong> {{ form_data['destination_city'] }}</li>
+        <li><strong>Class:</strong> {{ form_data['class'] }}</li>
+        <li><strong>Duration:</strong> {{ form_data['duration'] }} hrs</li>
+        <li><strong>Days Left:</strong> {{ form_data['days_left'] }} days</li>
+        <li><strong>Stops:</strong> {{ form_data['stops'].capitalize() }}</li>
+      </ul>
+
+      <a href="/predictor" class="retry-btn fire-button">🔄 Try for Another Flight</a>
+    </div>
+  {% endif %}
+
+</div>
+
+</body>
+</html>
