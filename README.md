@@ -28,5 +28,6 @@ A Machine Learning project that predicts flight ticket prices based on various p
 | Bagging Regressor    | 0.9844    |
 | 🌟 Random Forest      | **0.9854** |
 
-## 📁 Project Structure
+![Screenshot 2025-04-30 001807](https://github.com/user-attachments/assets/4e681eba-656d-4892-bab7-f7d6a0424d2e)
+
 
