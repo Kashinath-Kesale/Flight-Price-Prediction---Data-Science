@@ -5,6 +5,7 @@ When the training script is executed (e.g., train_model.py or notebook), the mod
 ✅ After successful training, the following serialized model file is automatically generated and saved:
 
     ➤ model/flight_price_model.pkl , label_encoders.pkl
+-- Download the flight_booking.csv from kaggle.com
 
 📦 This file contains the trained Random Forest Regressor used for prediction.
 
