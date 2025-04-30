@@ -9,8 +9,8 @@ A Machine Learning project that predicts flight ticket prices based on various p
 - **Seaborn**, **Matplotlib** for data visualization
 - **Scikit-learn** for model training and evaluation
 - **Random Forest Regressor** (R² = 0.985)
-- **flask** for building the web application
-- **flight_booking.csv** dataset from kaggle.com
+- **Flask** for building the web application
+- **Flight_Booking.csv** dataset from kaggle.com
 
 ## 🚀 Features
 
